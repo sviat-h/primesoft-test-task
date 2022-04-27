@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `nick` varchar(32) NOT NULL,
   `login` varchar(32) NOT NULL,
   `password` varchar(32) NOT NULL,
+  `is_deleted` tinyint NOT NULL DEFAULT '0',
   `insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login_UNIQUE` (`login`)
@@ -16,6 +17,7 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
   `login` varchar(32) NOT NULL,
   `brand` varchar(32) NOT NULL,
   `model` varchar(32) NOT NULL,
+  `is_deleted` tinyint NOT NULL DEFAULT '0',
   `insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
@@ -28,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `insurance_offers` (
   `vehicle_id` bigint NOT NULL,
   `insurer` varchar(32) NOT NULL,
   `price` decimal(10,2) NOT NULL,
+  `is_deleted` tinyint NOT NULL DEFAULT '0',
   `insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
