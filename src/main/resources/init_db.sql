@@ -14,15 +14,15 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 CREATE TABLE IF NOT EXISTS `vehicles` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `login` varchar(32) NOT NULL,
+  `user_login` varchar(32) NOT NULL,
   `brand` varchar(32) NOT NULL,
   `model` varchar(32) NOT NULL,
   `is_deleted` tinyint NOT NULL DEFAULT '0',
   `insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `login_UNIQUE` (`login`),
-  CONSTRAINT `vehicles_users_fk` FOREIGN KEY (`login`) REFERENCES `users` (`login`)
+  UNIQUE KEY `login_UNIQUE` (`user_login`),
+  CONSTRAINT `vehicles_users_fk` FOREIGN KEY (`user_login`) REFERENCES `users` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE IF NOT EXISTS `insurance_offers` (
